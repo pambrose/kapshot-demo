@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
     println("captured returned: ${captured()}")
     println("captured source: ${captured.source.text}")
 
-    captured.source.location.apply {
+    with(captured.source.location) {
         println("Path: $path, From: ${from.line + 1}, To: ${to.line + 1}")
     }
 
