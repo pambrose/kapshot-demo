@@ -1,6 +1,6 @@
 import io.koalaql.kapshot.CapturedBlock
 
-val simple = {
+val simple: () -> Int = {
     println("Simple!")
     5
 }
@@ -19,10 +19,9 @@ fun equation(block: CapturedBlock<Int>): String {
 fun main(args: Array<String>) {
     println("simple returned: ${simple()}")
     println("captured returned: ${captured()}")
-    println("captured source: ${captured.source.text}")
-
+    println("captured source:\n{${captured.source.text}}")
     with(captured.source.location) {
-        println("Path: $path, From: ${from.line + 1}, To: ${to.line + 1}")
+        println("Path: $path, from line: ${from.line + 1}, to line: ${to.line + 1}")
     }
 
     println(equation { 2 + 2 })
